@@ -1,0 +1,95 @@
+/* ============================================================
+   HOME.CSS — Page 1 : Accueil
+   ============================================================ */
+
+#screen-home {
+  padding: 0;
+}
+
+.home__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* MODIFIABLE : intensité du flou/assombrissement de la photo */
+  filter: blur(3px) brightness(0.55) saturate(1.05);
+  transform: scale(1.03); /* évite les bords flous visibles */
+}
+
+.home__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 15, 34, 0.35) 0%,
+    rgba(7, 15, 34, 0.25) 45%,
+    rgba(7, 15, 34, 0.7) 100%
+  );
+}
+
+/* Etoiles discrètes propres à la page d'accueil */
+.home__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home__stars .star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--dore-clair);
+  animation: scintille 3.6s ease-in-out infinite;
+}
+
+.home__stars .star--derive {
+  animation: scintille 3.6s ease-in-out infinite, derive 9s ease-in-out infinite;
+}
+
+.home__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+  max-width: 90%;
+}
+
+.home__phrase {
+  font-family: var(--police-titre);
+  font-size: clamp(1.6rem, 4.2vw, 3.1rem);
+  color: var(--blanc-casse);
+  text-shadow: 0 2px 18px rgba(0,0,0,0.45);
+  min-height: 1.4em;
+  transition: opacity 0.6s ease;
+  /* évite un "saut" de mise en page pendant l'écriture lettre par lettre */
+  white-space: pre-wrap;
+}
+
+.home__phrase--fade-out {
+  opacity: 0;
+}
+
+.home__phrase--arabic {
+  font-family: var(--police-arabe);
+  font-size: clamp(1.7rem, 4.6vw, 3.3rem);
+}
+
+.home__cta {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow var(--duree-hover) ease;
+}
+
+.home__cta--visible {
+  opacity: 1;
+  transform: translateY(0);
+}

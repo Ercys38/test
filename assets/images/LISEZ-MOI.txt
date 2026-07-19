@@ -1,0 +1,8 @@
+Tout est en place dans ce dossier — hero-nous.jpg et les photos de
+"Nos souvenirs" (memory-01 à memory-16) sont déjà là, rien à faire.
+
+placeholder-photo.svg reste dans ce dossier : c'est l'image de secours
+qui s'affiche automatiquement si jamais un nom de fichier ne correspond
+pas. Ne pas la supprimer.
+
+Tu peux supprimer ce fichier texte si tu veux.
