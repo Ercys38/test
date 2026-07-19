@@ -1,0 +1,122 @@
+/* ============================================================
+   LETTER.CSS — Partie 3 : Une lettre pour toi
+   ============================================================ */
+
+#screen-letter {
+  perspective: 1400px;
+}
+
+.letter__jasmine {
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  width: clamp(70px, 8vw, 120px);
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.letter__hint {
+  position: absolute;
+  bottom: 6vh;
+  font-size: 0.9rem;
+  color: rgba(250,246,236,0.7);
+  font-style: italic;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+.letter__hint--hidden { opacity: 0; }
+
+.envelope {
+  position: relative;
+  z-index: 3;
+  width: min(340px, 78vw);
+  aspect-ratio: 3 / 2;
+  cursor: pointer;
+}
+
+.envelope__back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--dore-clair), var(--dore));
+  border-radius: 6px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+
+.envelope__flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background: linear-gradient(160deg, var(--dore), #8a6a2c);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
+  z-index: 3;
+}
+
+.envelope__seal {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--bleu-turquoise);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  z-index: 4;
+  transition: opacity 0.4s ease;
+}
+
+.envelope__letter {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  height: 82%;
+  background: var(--blanc-casse);
+  color: var(--encre);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(6%) scale(0.92);
+  z-index: 2;
+  padding: 1.6rem 1.5rem;
+  overflow-y: auto;
+  transition: transform 1.1s cubic-bezier(.3,.7,.3,1);
+}
+
+.envelope__text {
+  font-family: var(--police-manuscrite);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  line-height: 1.55;
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* --- Etat "ouvert" --- */
+.envelope--open .envelope__flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+.envelope--open .envelope__seal {
+  opacity: 0;
+}
+.envelope--open .envelope__letter {
+  transform: translateY(-38%) scale(1.28);
+  z-index: 5;
+  max-height: 60vh;
+}
+
+#screen-letter .btn-return-menu ~ .btn,
+#btnLetterDone {
+  position: relative;
+  z-index: 3;
+  margin-top: 2rem;
+}
